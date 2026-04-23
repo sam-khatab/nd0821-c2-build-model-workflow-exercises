@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,python,venv,pycharm,vim,emacs,visualstudiocode,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,python,venv,pycharm,vim,emacs,visualstudiocode,jupyternotebooks
 
+#Ignore all solution files with invalid : characters in their name
+*artifacts/genres_mod.parquet:*
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
