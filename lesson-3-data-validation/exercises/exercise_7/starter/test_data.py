@@ -72,6 +72,9 @@ def test_class_names(data):
     # HINT: you can use the .isin method of pandas, and .all to check that the condition
     # is true for every row. For example, df['one'].isin(['a','b','c']).all() is True if
     # all values in column "one" are contained in the list 'a', 'b', 'c'
+    for row_number, genre in enumerate(data['genre']):
+        assert genre in known_classes, f"Row {row_number} failed test {genre} is an unknown genre"
+        
 
 
 def test_column_ranges(data):
@@ -95,4 +98,6 @@ def test_column_ranges(data):
         # YOUR CODE HERE: check that the values in the column col_name are within the expected range
         # HINT: look at the .between method of pandas, and then use .all() like in the previous
         # test
-        pass
+        fails = ~pd.Series(data[col_name].values).between(minimum, maximum)
+        fails = fails.sum()
+        assert fails == 0, f"Column {col_name} failed test. Contains {fails} values outside given range of {maximum}, {minimum}"

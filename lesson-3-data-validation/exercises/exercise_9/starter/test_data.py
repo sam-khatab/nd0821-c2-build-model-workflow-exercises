@@ -3,7 +3,9 @@ import scipy.stats
 
 # COMPLETE HERE: make this test accept the fixtures defined in the
 # conftest.py file (data and ks_alpha)
-def test_kolmogorov_smirnov(x, y):  # TODO: update x and y here.
+
+
+def test_kolmogorov_smirnov(data, ks_alpha):  # TODO: update x and y here.
 
     sample1, sample2 = data
 
@@ -19,7 +21,6 @@ def test_kolmogorov_smirnov(x, y):  # TODO: update x and y here.
         "tempo",
         "duration_ms"
     ]
-
     alpha_prime = 1 - (1 - ks_alpha)**(1 / len(columns))
 
     for col in columns:
